@@ -1,0 +1,38 @@
+<!-- <p>login works!</p> -->
+<section class="Form">
+    <div class="container my-30">
+      <div class="row no-gutters">
+        <div class="col-lg-5">
+          <img
+            src="https://wallpaperaccess.com/full/2593065.jpg"
+            class="img-fluid"
+            height="50px"
+            alt=""
+          />
+        </div>
+        <div class="col-lg-7 px-5 pt-1">
+          <h1 class="font-weight-bold py-3">Login</h1>
+          <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="form-group m-2">
+                <input type="text" [formControlName]="'username'" placeholder="Username" class="form-control"/>
+            </div>
+            <div class="form-group m-2">
+                <input type="password" [formControlName]="'password'" placeholder="Password" class="form-control"/>
+            </div>
+            <button [disabled]="!form.valid" type="submit" class="btn btn-success">Submit</button>
+            <p>
+                Don't have an account?
+                <a style="color: blue; margin: top 10px" routerLink="/signup"
+                  >Register here</a
+                >
+              </p>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
+<app-input-password></app-input-password>
+  
+  
+
+

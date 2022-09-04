@@ -1,7 +1,7 @@
 <p>
-    Today's item: {{item}}
-  </p>
+    Todo Title: <b class="h3">{{item}}</b>
+</p>
   
-  <label for="item-input">Add an item:</label>
+  <label for="item-input">Enter Todo Title Here:</label>
 <input type="text" id="item-input" #newItem>
-<button type="button" (click)="addNewItem(newItem.value)">Add to parent's list</button>
+<button class="btn btn-info m-2" type="button" (click)="addNewItem(newItem.value)">Add Todo</button>

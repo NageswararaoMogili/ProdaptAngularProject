@@ -11,4 +11,8 @@ export class AppComponent {
     console.log(newItem);
     this.title=newItem;
   }
+  clickHandler(){
+    console.log('buttonClicked');
+    
+  }
 }
