@@ -1,10 +1,8 @@
 <div class="dropdown">
-    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-    </ul>
+    <select class="form-select" #theme aria-label="Default select example" (change)="onChange(theme.value)">
+      <option selected>Open this select menu</option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+    </select>
   </div>

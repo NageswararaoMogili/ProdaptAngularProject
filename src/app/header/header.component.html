@@ -1,6 +1,6 @@
 <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-primary bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-warning">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -16,13 +16,13 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" ><h4>Title</h4></a>
+              <a class="nav-link" aria-current="page" ><h4>{{UserName}}</h4></a>
             </li>
             
           </ul>
         </div>
       </div>
-      <app-dropdown ></app-dropdown>
+      <app-dropdown  (changetheme)="addItem($event)"></app-dropdown>
     </nav>
 </header>
     <!-- Navbar -->

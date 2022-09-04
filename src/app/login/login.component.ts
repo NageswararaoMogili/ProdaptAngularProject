@@ -1,5 +1,7 @@
+import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +10,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  router: any;
-  constructor(private readonly fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    public router : Router,
+    public global: GlobalService
+    ) {
     this.form = this.fb.group({
       username: ['', Validators.required],      
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -21,7 +26,14 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-        console.log(this.form.getRawValue());
+      var userdata= this.global.userList.filter((x:any)=> x.username == this.form.value.username);
+      if(userdata.length>0){
+        localStorage.setItem("userdetails", JSON.stringify(userdata[0]))
+        this.router.navigateByUrl("/dashboard");
+      }else{
+        alert('No user with username'+ ' ' + this.form.value.username);
+      }
+      
     } else {
         console.log('There is a problem with the form');
     }

@@ -14,6 +14,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { GlobalService } from './global.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
