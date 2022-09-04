@@ -1,6 +1,5 @@
 <div class="dropdown">
-    <select class="form-select" #theme aria-label="Default select example" (change)="onChange(theme.value)">
-      <option selected>Open this select menu</option>
+    <select class="form-select" #theme aria-label="Default select example" (change)="onChange(theme.value)" [(ngModel)]="bgtheme">
       <option value="a">A</option>
       <option value="b">B</option>
       <option value="c">C</option>

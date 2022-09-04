@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  selectedclass:any = "a";
   @Input() UserName:any ='Test User';
 
   constructor() { }
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   addItem(event:any){
+    this.selectedclass=event;
     console.log(event);
     
   }

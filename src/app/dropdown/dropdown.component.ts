@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -6,13 +6,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent implements OnInit {
+  @Input() bgtheme:any;
   @Output() changetheme = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
   onChange(value: string) {
-    
+
     this.changetheme.emit(value);
   }
   
