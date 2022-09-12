@@ -1,31 +1,23 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let control of jsonFormData?.controls">
+    <label for="message-text" class="col-form-label">{{ control.label }}</label>
+    <input *ngIf="
+    [
+      'text',
+      'password',
+      'email',
+      'number',
+      'search',
+      'tel',
+      'url'
+    ].includes(control.type)
+  " class="form-control" [type]="control.type" [formControlName]="control.name" [value]="control.value">
+
+  <input *ngIf="control.type === 'checkbox'" class="form-check-input" [type]="control.type" [formControlName]="control.name"[value]="control.value">
+  <div *ngIf="myForm.controls[control.name].invalid && (myForm.controls[control.name].dirty || myForm.controls[control.name].touched)" class="alert">
+    Please enter {{control.label}}
+</div>   
 </div>
+  <button type="submit" class="btn btn-primary">submit</button>
+</form>

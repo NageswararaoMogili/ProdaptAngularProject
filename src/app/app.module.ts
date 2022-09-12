@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { GlobalService } from './global.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GlobalService } from './global.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent]

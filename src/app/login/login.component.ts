@@ -2,6 +2,9 @@ import { GlobalService } from './../global.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { JsonFormData } from '../input-text/input-text.component';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -10,10 +13,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  public formData!: JsonFormData;
+
   constructor(
     private fb: FormBuilder,
     public router : Router,
-    public global: GlobalService
+    public global: GlobalService,
+    private http: HttpClient,
+
     ) {
     this.form = this.fb.group({
       username: ['', Validators.required],      
@@ -22,21 +29,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.get('/assets/my-form.json').subscribe((formData: JsonFormData | any) => {
+      this.formData = formData;
+    });
   }
 
-  submitForm() {
-    if (this.form.valid) {
-      var userdata= this.global.userList.filter((x:any)=> x.username == this.form.value.username);
+  submitForm(event:any) {
+    console.log(event);
+    
+      var userdata= this.global.userList.filter((x:any)=> x.username == event.username);
       if(userdata.length>0){
         localStorage.setItem("userdetails", JSON.stringify(userdata[0]))
         this.router.navigateByUrl("/dashboard");
       }else{
-        alert('No user with username'+ ' ' + this.form.value.username);
+        alert('No user with username'+ ' ' + event.username);
       }
       
-    } else {
-        console.log('There is a problem with the form');
-    }
+    
   }
 
   sign(){
