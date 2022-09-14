@@ -1,8 +1,17 @@
 {
     "controls": [
       {
-        "name": "username",
-        "label": "User Name:",
+        "name": "ID",
+        "label": "ID:",
+        "value": "",
+        "type": "number",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "firstname",
+        "label": "First Name:",
         "value": "",
         "type": "text",
         "validators": {
@@ -10,8 +19,37 @@
         }
       },
       {
+        "name": "lastname",
+        "label": "Last Name:",
+        "value": "",
+        "type": "text",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "E-mail",
+        "label": "E-mail:",
+        "value": "",
+        "type": "email",
+        "validators": {
+          "required": true,
+          "email": "email"
+        }
+      },
+      {
         "name": "password",
         "label": "Password:",
+        "value": "",
+        "type": "password",
+        "validators": {
+          "required": true,
+          "minLength":6
+        }
+      },
+      {
+        "name": "confirmpassword",
+        "label": "Confirm Password:",
         "value": "",
         "type": "password",
         "validators": {

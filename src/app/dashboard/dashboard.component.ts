@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalService } from '../global.service';
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     public global : GlobalService,
     private fb: FormBuilder,
+    public router: Router
   ) { 
     this.addTodoListForm = this.fb.group({
       userId: [this.userDetails.id],      
@@ -54,4 +56,5 @@ export class DashboardComponent implements OnInit {
 
     // Here need to impliment the HTTP call
   }
+ 
 }
