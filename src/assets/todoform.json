@@ -1,7 +1,16 @@
 {
     "controls": [
+        {
+            "userId": "userId",
+            "label": "Enter userId:",
+            "value": "",
+            "type": "number",
+            "validators": {
+              "required": true
+            }
+          },
       {
-        "name": "ID",
+        "id": "id",
         "label": "Enter ID:",
         "value": "",
         "type": "number",
@@ -10,7 +19,7 @@
         }
       },
       {
-        "name": "Title",
+        "title": "title",
         "label": "Enter Title:",
         "value": "",
         "type": "text",
@@ -18,6 +27,5 @@
           "required": true
         }
       }
-      
     ]
   }

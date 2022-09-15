@@ -26,17 +26,17 @@ export class DashboardComponent implements OnInit {
 
   ) { 
     this.addTodoListForm = this.fb.group({
-      userId: [this.userDetails.id],      
-      id: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      completed: [false]
+      // userId: [this.userDetails.id],      
+      // id: ['', [Validators.required]],
+      // title: ['', [Validators.required]],
+      // completed: [false]
     });
     this.updateTodoListForm = this.fb.group({
-      userId: [this.userDetails.id],      
-      id: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      index: ['', [Validators.required]],
-      completed: [false]
+      // userId: [this.userDetails.id],      
+      // id: ['', [Validators.required]],
+      // title: ['', [Validators.required]],
+      // index: ['', [Validators.required]],
+      // completed: [false]
     });
   }
 
@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
   }
   submitForm(event:any){
     console.log(event);
-    this.global.todoList.push(this.addTodoListForm.value);
+    this.global.todoList.push(event.value);
     this.onCloseHandled();
     this.ngOnInit();
 

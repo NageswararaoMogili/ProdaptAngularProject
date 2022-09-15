@@ -19,6 +19,10 @@ interface JsonFormControlOptions {
   icon?: string;
 }
 interface JsonFormControls {
+  userId: number;
+  id: number;
+  title:string;
+  completed:boolean;
   name: string;
   label: string;
   value: string;
