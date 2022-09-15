@@ -14,17 +14,15 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   public formData!: JsonFormData;
+  public usernotfound: string ='';
 
   constructor(
     private fb: FormBuilder,
     public router : Router,
     public global: GlobalService,
     private http: HttpClient,
-
     ) {
     this.form = this.fb.group({
-      // username: ['', Validators.required],      
-      // password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -35,17 +33,17 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(event:any) {
-    console.log(event);
-    
-      var userdata= this.global.userList.filter((x:any)=> x.username == event.username);
-      if(userdata.length>0){
-        localStorage.setItem("userdetails", JSON.stringify(userdata[0]))
-        this.router.navigateByUrl("/dashboard");
-      }else{
-        alert('No user with username'+ ' ' + event.username);
-      }
-      
-    
+    this.usernotfound = '';
+    var userdata = this.global.userList.filter((x: any) => x.username == event.username);
+    if (userdata.length > 0) {
+      localStorage.setItem("userdetails", JSON.stringify(userdata[0]))
+      this.router.navigateByUrl("/dashboard");
+    } else {
+      this.usernotfound = 'No user with username' + ' ' + event.username;
+      var x:any = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
   }
 
   sign(){

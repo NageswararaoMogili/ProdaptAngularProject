@@ -1,124 +1,86 @@
 <div class="sticky-top">
-  <app-header [UserName]="userDetails.name"></app-header>
-  <div class="row">
-    <div
-      class="text-center col-3 p-2"
-      type="button"
-      data-toggle="modal"
-      data-target="#exampleModal"
-      style="padding: 10px; font-size: large"
-    >
-      <button (click)="openModal()" class="btn btn-success">
-        Add Todo List
-      </button>
+    <app-header [UserName]="userDetails.name"></app-header>
+
+    <div class="row">
+        <div class="text-center col-3 p-2" type="button" data-toggle="modal" data-target="#exampleModal"
+            style="padding: 10px;font-size: large;">
+            <button (click)="openModal()" class="btn btn-success">Click Here to Add Todo List</button>   
+        </div>
+<!-- CheckBox declaration on dashboard page  -->
+        <div class="text-center col-9">
+            <div style="padding: 10px;font-size: large;" class="form-check m-2 border border-2 rounded bg-secondary">
+                <input style="margin: 5px;" class="form-check-input ml-2" type="checkbox" [(ngModel)]="showCompleted"
+                    (ngModelChange)="showList()" [value]="true" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Show Completed todo's
+                </label>
+            </div>
+        </div>
     </div>
-    <div class="text-center col-9">
-      <div
-        style="padding: 10px; font-size: large"
-        class="form-check m-2 border border-2 rounded bg-secondary"
-      >
-        <input
-          style="margin: 5px"
-          class="form-check-input ml-2"
-          type="checkbox"
-          [(ngModel)]="showCompleted"
-          (ngModelChange)="showList()"
-          [value]="true"
-          id="flexCheckDefault"
-        />
-        <label class="form-check-label" for="flexCheckDefault">
-          Show Completed todo's
-        </label>
-      </div>
-    </div>
-  </div>
 </div>
+<!-- dividing dashboard page using Grid system and declaring Titles on page  -->
 <div class="row m-2">
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2"><strong>User ID</strong></div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2"><strong>ID</strong></div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2"><strong>Title</strong></div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2"><strong>Completed</strong></div>
-  </div>
-</div>
-<div *ngFor="let item of todoList" class="row m-2">
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2">{{ item.userId }}</div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2">{{ item.id }}</div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2">{{ item.title }}</div>
-  </div>
-  <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
-    <div class="m-2 bg-light p-2">
-      {{ item.completed ? "Completed" : "Not Completed" }}
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2"><strong>User ID</strong> </div>
     </div>
-  </div>
-</div>
-<div
-  class="modal"
-  tabindex="-1"
-  role="dialog"
-  [ngStyle]="{ display: display }"
-  style="background: rgba(0, 0, 0, 0.4)"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add Todo's List</h4>
-        <button
-          type="button"
-          class="close"
-          aria-label="Close"
-          (click)="onCloseHandled()"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="addTodoListForm" (ngSubmit)="submitForm()">
-          <div class="form-group m-2">
-            <input
-              type="number"
-              formControlName="id"
-              placeholder="Enter ID"
-              class="form-control"
-            />
-          </div>
-          <div class="form-group m-2">
-            <input
-              type="text"
-              formControlName="title"
-              placeholder="Enter Title"
-              class="form-control"
-            />
-          </div>
-          <button
-            [disabled]="!addTodoListForm.valid"
-            type="submit"
-            class="btn btn-success"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-default"
-          (click)="onCloseHandled()"
-        >
-          Close
-        </button>
-      </div>
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2"><strong>ID</strong></div>
     </div>
-  </div>
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3 ">
+        <div class="m-2 bg-light p-2"><strong>Title</strong> </div>
+    </div>
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2"><strong>Completed</strong> </div>
+    </div>
+</div>
+
+<!-- Binding Data and dividing dashboard page using Grid system  -->
+
+<div *ngFor="let item of todoList;let index=index" class="row m-2">
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2">{{item.userId}}</div>
+    </div>
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2">{{item.id}}</div>
+    </div>
+    <div (click)="update(item,index)" style="cursor: pointer;" class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3 ">
+        <div class="m-2 bg-light p-2">{{item.title}} 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+              </svg>
+        </div>
+    </div>
+    <div class="text-center col-sm-12 col-lg-3 col-md-3 col-md-3 col-xl-3">
+        <div class="m-2 bg-light p-2">{{item.completed?'Completed':'Not Completed'}}</div>
+    </div>
+</div>
+
+<!-- AddTodo button click Modal declaration on DashBoard using bootstrapModal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}" style="background: rgba(0, 0, 0, 0.4);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Todo's List</h4>
+                <app-input-email [name]="'Close'" (newItemEvent)="onCloseHandled()"></app-input-email>
+            </div>
+            <div class="modal-body">
+                <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>     
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit button Modal declaration using bootstrapModal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayupdate}" style="background: rgba(0, 0, 0, 0.4);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Todo's List</h4>
+                    <app-input-email [name]="'Close'" (newItemEvent)="onCloseUpdateHandled()"></app-input-email>
+            </div>
+            <div class="modal-body">
+                 <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>     
+            </div>
+        </div>
+    </div>
 </div>

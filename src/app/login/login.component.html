@@ -1,28 +1,26 @@
-<!-- <p>login works!</p> -->
 <section class="Form">
-    <div class="container my-30">
-      <div class="row no-gutters">
-        <div class="col-lg-5">
-          <img
-            src="https://wallpaperaccess.com/full/2593065.jpg"
-            class="img-fluid"
-            height="50px"
-            alt=""
-          />
-        </div>
-        <div class="col-lg-7 px-5 pt-1">
-          <h1 class="font-weight-bold py-3">Login</h1>
-          <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)" ></app-input-text>
-          <p>
-            Don't have an account?
-            <a style="color: blue; margin: top 10px" routerLink="/signup"
-              >Register here</a
-            >
-          </p>
-        </div>
+  <div class="container my-30">
+    <div class="row no-gutters">
+      <div class="col-lg-5">
+        <img
+          src="https://wallpaperaccess.com/full/2593065.jpg"
+          class="img-fluid"
+          height="50px"
+          alt=""
+        />
+      </div>
+      <div class="col-lg-7 px-5 pt-1">
+        <h1 class="font-weight-bold py-3">Login</h1>
+        <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>
+        <div id="snackbar" style="color: red;">{{usernotfound}}</div>
+        <p *ngIf="usernotfound.length">
+          Don't have an account?
+          <a style="color: blue; margin: top 10px" routerLink="/signup"
+            >Register here</a
+          >
+        </p>
       </div>
     </div>
-  </section>
-  
-
+  </div> 
+</section>
 

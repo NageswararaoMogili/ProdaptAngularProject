@@ -8,7 +8,7 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class InputEmailComponent implements OnInit {
 
-  @Input() item = '';
+  @Input() name = '';
   @Output() newItemEvent = new EventEmitter<string>();
 
   constructor() { }

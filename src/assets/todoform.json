@@ -1,0 +1,23 @@
+{
+    "controls": [
+      {
+        "name": "ID",
+        "label": "Enter ID:",
+        "value": "",
+        "type": "number",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "Title",
+        "label": "Enter Title:",
+        "value": "",
+        "type": "text",
+        "validators": {
+          "required": true
+        }
+      }
+      
+    ]
+  }
