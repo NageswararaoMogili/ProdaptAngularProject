@@ -68,12 +68,16 @@ export class DashboardComponent implements OnInit {
   }
   onCloseUpdateHandled() {
     this.todoList[this.updateTodoListForm.value.index] = this.updateTodoListForm.value;
+    this.displayupdate = "none";
+
   }
-  submitUpdateForm() {
+  submitUpdateForm(event:any) {
     this.todoList[this.updateTodoListForm.value.index] = this.updateTodoListForm.value;
+    this.displayupdate = "none";
+
   }
   submitForm(event:any){
-    console.log(this.addTodoListForm.value);
+    console.log(event);
     this.global.todoList.push(this.addTodoListForm.value);
     this.onCloseHandled();
     this.ngOnInit();

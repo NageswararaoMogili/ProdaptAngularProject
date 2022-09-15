@@ -75,11 +75,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Add Todo's List</h4>
+                <h4 class="modal-title">Update Todo's Title</h4>
                     <app-input-email [name]="'Close'" (newItemEvent)="onCloseUpdateHandled()"></app-input-email>
             </div>
             <div class="modal-body">
-                 <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>     
+                 <app-input-text [jsonFormData]="formData" (newItemEvent)="submitUpdateForm($event)"></app-input-text>     
             </div>
         </div>
     </div>
