@@ -71,7 +71,7 @@
 </div>
 
 <!-- Edit button Modal declaration using bootstrapModal -->
-<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayupdate}" style="background: rgba(0, 0, 0, 0.4);">
+<div *ngIf="showedit" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayupdate}" style="background: rgba(0, 0, 0, 0.4);">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,7 +79,16 @@
                     <app-input-email [name]="'Close'" (newItemEvent)="onCloseUpdateHandled()"></app-input-email>
             </div>
             <div class="modal-body">
-                 <app-input-text [jsonFormData]="formData" (newItemEvent)="submitUpdateForm($event)"></app-input-text>     
+                <form [formGroup]="updateTodoListForm" (ngSubmit)="submitUpdateForm()">
+                    <div class="form-group m-2">
+                        <input type="number" formControlName="id" placeholder="Enter ID" class="form-control"/>
+                    </div>
+                    <div class="form-group m-2">
+                        <input type="text" formControlName="title" placeholder="Enter Title" class="form-control"/>
+                    </div>
+                    <button [disabled]="!updateTodoListForm.valid" type="submit" class="btn btn-success">Submit</button>
+                </form>
+                 <!-- <app-input-text [jsonFormData]="updateformData" (newItemEvent)="submitUpdateForm($event)"></app-input-text>      -->
             </div>
         </div>
     </div>

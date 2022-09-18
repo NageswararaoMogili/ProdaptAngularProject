@@ -16,9 +16,10 @@ export class DashboardComponent implements OnInit {
   display = "none";
   addTodoListForm: FormGroup;
   updateTodoListForm: FormGroup;
-  displayupdate: string = 'none';
+  displayupdate: string = 'block';
   public formData!: JsonFormData;
-
+  updateformData: any;
+  showedit= false;
   constructor(
     public global : GlobalService,
     private fb: FormBuilder,
@@ -32,32 +33,34 @@ export class DashboardComponent implements OnInit {
       // completed: [false]
     });
     this.updateTodoListForm = this.fb.group({
-      // userId: [this.userDetails.id],      
-      // id: ['', [Validators.required]],
-      // title: ['', [Validators.required]],
-      // index: ['', [Validators.required]],
-      // completed: [false]
+      userId: [this.userDetails.id],      
+      id: ['', [Validators.required]],
+      title: ['', [Validators.required]],
+      index: ['', [Validators.required]],
+      completed: [false]
     });
   }
 
   ngOnInit(): void {
     this.http.get('/assets/todoform.json').subscribe((formData: JsonFormData | any) => {
       this.formData = formData;
+      this.updateformData = formData;
     });
-
+    this.getTodoList();
+  }
+  getTodoList(){
     this.userDetails= JSON.parse(localStorage.getItem("userdetails")|| "null");
     this.addTodoListForm.patchValue({
       userId:this.userDetails.id
     })
-    this.todoList = this.global.todoList.filter((x:any)=> x.userId === this.userDetails.id);
-    
+    this.todoList = this.global.todoList.filter((x:any)=> x.userId == this.userDetails.id);
   }
   
   showList(){
     if (this.showCompleted) {
-     this.todoList = this.global.todoList.filter((x:any)=>x.userId === this.userDetails.id && x.completed === true);
+     this.todoList = this.global.todoList.filter((x:any)=>x.userId == this.userDetails.id && x.completed === true);
     } else {
-      this.todoList = this.global.todoList.filter((x:any)=> x.userId === this.userDetails.id);
+      this.todoList = this.global.todoList.filter((x:any)=> x.userId == this.userDetails.id);
     }
   }
   openModal() {
@@ -68,25 +71,25 @@ export class DashboardComponent implements OnInit {
   }
   onCloseUpdateHandled() {
     this.todoList[this.updateTodoListForm.value.index] = this.updateTodoListForm.value;
-    this.displayupdate = "none";
-
+    this.showedit = false;
   }
-  submitUpdateForm(event:any) {
+  submitUpdateForm() {
     this.todoList[this.updateTodoListForm.value.index] = this.updateTodoListForm.value;
-    this.displayupdate = "none";
+    this.showedit = false;
 
   }
   submitForm(event:any){
     console.log(event);
-    this.global.todoList.push(event.value);
+    event["completed"] = false;
+    this.global.todoList.push(event);
     this.onCloseHandled();
-    this.ngOnInit();
+    this.getTodoList();
 
     // Here need to impliment the HTTP call
   }
   update(item:any,index:any){
-    console.log(item,index);
-    this.displayupdate = "block";
+    console.log(this.updateformData);
+    this.showedit = true;
     this.updateTodoListForm.patchValue({
       userId:item.userId,
       id:item.id,
@@ -95,8 +98,5 @@ export class DashboardComponent implements OnInit {
       index:index
     });
   }
-}
-function showList(): ((error: any) => void) | null | undefined {
-  throw new Error('Function not implemented.');
 }
 

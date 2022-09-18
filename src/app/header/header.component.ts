@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  selectedclass:any = "a";
+  selectedclass:any = "b";
   @Input() UserName:any ='Test User';
 
   constructor() { }
