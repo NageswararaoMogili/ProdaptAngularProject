@@ -1,0 +1,23 @@
+{
+    "controls": [
+      {
+        "name": "username",
+        "label": "User Name:",
+        "value": "",
+        "type": "text",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "password",
+        "label": "Password:",
+        "value": "",
+        "type": "password",
+        "validators": {
+          "required": true,
+          "minLength":6
+        }
+      }
+    ]
+  }

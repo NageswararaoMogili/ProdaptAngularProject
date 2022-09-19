@@ -1,32 +1,15 @@
-<div class="page-wrapper bg-gra-02  font-poppins">
-  <div class="wrapper wrapper--w680" style="padding: 5px 20px;">
-    <div class="card card-4" style="margin: 25px 250px;">
-      <div class="card-body">
-        <h2 class="title text-center">SignUp</h2>
-        <form [formGroup]="form" (ngSubmit)="submitForm()">
-          <div class="form-group m-2">
-            <input type="number" [formControlName]="'id'" placeholder="Enter Id" class="form-control"/>
+<div style="background-color: darkseagreen;">
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>SignUp Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)" ></app-input-text>
         </div>
-          <div class="form-group m-2">
-              <input type="text" [formControlName]="'firstname'" placeholder="First Name" class="form-control"/>
-          </div>
-          <div class="form-group m-2">
-              <input type="text" [formControlName]="'lastname'" placeholder="Last Name" class="form-control"/>
-          </div>
-          <div class="form-group m-2">
-              <input type="email" [formControlName]="'email'" placeholder="E-main" class="form-control"/>
-          </div>
-          <div class="form-group m-2">
-              <input type="password" [formControlName]="'password'" placeholder="Password" class="form-control"/>
-          </div>
-          <div class="form-group m-2">
-              <input type="confirmpassword" [formControlName]="'confirmpassword'" placeholder="Confirm Password" class="form-control"/>
-          </div>
-          <div class="text-center">
-          <button [disabled]="!form.valid" type="submit" class="btn btn-success">Submit</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 </div>
+

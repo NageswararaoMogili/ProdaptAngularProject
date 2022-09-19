@@ -1,0 +1,31 @@
+{
+    "controls": [
+      {
+        "name": "userId",
+        "label": "Enter userId:",
+        "value": "",
+        "type": "number",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "id",
+        "label": "Enter ID:",
+        "value": "",
+        "type": "number",
+        "validators": {
+          "required": true
+        }
+      },
+      {
+        "name": "title",
+        "label": "Enter Title:",
+        "value": "",
+        "type": "text",
+        "validators": {
+          "required": true
+        }
+      }
+    ]
+  }
