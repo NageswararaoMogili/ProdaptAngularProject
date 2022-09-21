@@ -61,7 +61,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Add Todo's List</h4>
-                <app-input-email [name]="'Close'" (newItemEvent)="onCloseHandled()"></app-input-email>
+                <app-button [name]="'Close'" (newItemEvent)="onCloseHandled()"></app-button>
             </div>
             <div class="modal-body">
                 <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>     
@@ -76,14 +76,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Todo's Title</h4>
-                    <app-input-email [name]="'Close'" (newItemEvent)="onCloseUpdateHandled()"></app-input-email>
+                    <app-button [name]="'Close'" (newItemEvent)="onCloseUpdateHandled()"></app-button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="updateTodoListForm" (ngSubmit)="submitUpdateForm()">
                     <div class="form-group m-2">
+                        <label for="id">Enter ID:</label>
                         <input type="number" formControlName="id" placeholder="Enter ID" class="form-control"/>
                     </div>
                     <div class="form-group m-2">
+                        <label for="id">title:</label>
                         <input type="text" formControlName="title" placeholder="Enter Title" class="form-control"/>
                     </div>
                     <button [disabled]="!updateTodoListForm.valid" type="submit" class="btn btn-success">Submit</button>
