@@ -13,6 +13,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { GlobalService } from './global.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonComponent } from './button/button.component';
+import { ReactiveInputComponent } from './reactive-input/reactive-input.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ButtonComponent } from './button/button.component';
     DashboardComponent,
     NotfoundComponent,
     ButtonComponent,
+    ReactiveInputComponent,
 
   ],
   imports: [

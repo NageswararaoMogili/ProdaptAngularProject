@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,9 @@ export class HeaderComponent implements OnInit {
   selectedclass:any = "b";
   @Input() UserName:any ='Test User';
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +20,9 @@ export class HeaderComponent implements OnInit {
     this.selectedclass=event;
     console.log(event);
     
+  }
+  logout(){
+    this.router.navigateByUrl('/login');
   }
 
 }

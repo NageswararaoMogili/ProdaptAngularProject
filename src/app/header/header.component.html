@@ -22,8 +22,12 @@
           </ul>
         </div>
       </div>
+      <div>
       <app-dropdown [bgtheme]="selectedclass"  (changetheme)="addItem($event)"></app-dropdown>
+      </div>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
     </nav>
+    
 </header>
     <!-- Navbar -->
   
