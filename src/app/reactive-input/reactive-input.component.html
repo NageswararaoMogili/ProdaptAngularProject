@@ -1,0 +1,17 @@
+<ng-template #reactiveInput class="llac-input">
+
+<label>{{labelname}}</label>
+<input [type]="type" 
+[class]="classname" 
+[value]="value" 
+[(ngModel)]="value"
+[required]="required" 
+[disabled]="disabled" 
+[minLength]="minLength" 
+[maxLength]="maxLength"
+[placeholder]="placeholder"
+[readonly]="readonly"
+[pattern]="patternChange"
+[id]="id"
+>
+</ng-template>
