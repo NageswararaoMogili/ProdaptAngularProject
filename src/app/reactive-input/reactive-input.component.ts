@@ -33,6 +33,9 @@ implements ControlValueAccessor, AfterViewInit  {
   @Input() id = '';
   value = '';
   @Input() classname? = '';
+  @Input() lableclassname= '';
+  @Output() inputchange: EventEmitter<any> = new EventEmitter();
+
 
   onChange!: (value: string) => void;
   onTouched!: () => void;
@@ -55,6 +58,7 @@ implements ControlValueAccessor, AfterViewInit  {
    * function to allow the forms API to update itself:
    */
   registerOnChange(fn: VoidFunction): void {
+    console.log(fn);
     this.onChange = fn;
   }
 

@@ -1,4 +1,4 @@
-<!-- <section class="Form">
+<section class="Form">
   <div class="container my-30">
     <div class="row no-gutters">
       <div class="col-lg-5">
@@ -11,8 +11,36 @@
       </div>
       <div class="col-lg-7 px-5 pt-1">
         <h1 class="font-weight-bold py-3">Login</h1>
-        <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text>
-        <div id="snackbar" style="color: red;">{{usernotfound}}</div>
+        <app-reactive-input
+          [type]="'text'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'UserName'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'Username'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+          [type]="'password'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'Password'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'password'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <!-- <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text> -->
+        <div id="snackbar" style="color: red">{{ usernotfound }}</div>
         <p *ngIf="usernotfound.length">
           Don't have an account?
           <a style="color: blue; margin: top 10px" routerLink="/signup"
@@ -21,15 +49,5 @@
         </p>
       </div>
     </div>
-  </div> 
-</section> -->
-<app-reactive-input [class]="'classname'" 
-[required]= "true" 
-[disabled]= "false" 
-[minLength]="6" 
-[maxLength]="10"
-[placeholder]="'FirstName'"
-[readonly]="false"
-[id]="'id'">
-</app-reactive-input>
-
+  </div>
+</section>

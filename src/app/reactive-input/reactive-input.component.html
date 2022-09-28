@@ -1,17 +1,19 @@
-<ng-template #reactiveInput class="llac-input">
 
-<label>{{labelname}}</label>
-<input [type]="type" 
-[class]="classname" 
-[value]="value" 
-[(ngModel)]="value"
-[required]="required" 
-[disabled]="disabled" 
-[minLength]="minLength" 
-[maxLength]="maxLength"
-[placeholder]="placeholder"
-[readonly]="readonly"
-[pattern]="patternChange"
-[id]="id"
->
-</ng-template>
+
+<div class="form-outline">
+
+    <label [class]="lableclassname">{{labelname}}</label>
+    <input [type]="type" 
+    [class]="classname" 
+    [value]="value" 
+    [required]="required" 
+    [disabled]="disabled" 
+    [minLength]="minLength" 
+    [maxLength]="maxLength"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [pattern]="patternChange"
+    [id]="id"
+    >
+    
+</div>
