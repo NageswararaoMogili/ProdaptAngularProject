@@ -9,9 +9,11 @@
           alt=""
         />
       </div>
+    
       <div class="col-lg-7 px-5 pt-1">
         <h1 class="font-weight-bold py-3">Login</h1>
-        <app-reactive-input
+        <form >
+          <app-reactive-input
           [type]="'text'"
           [classname]="'form-control'"
           [required]="true"
@@ -19,7 +21,7 @@
           [lableclassname]="'col-form-label'"
           [disabled]="false"
           [minLength]="6"
-          [maxLength]="10"
+          [maxLength]="100"
           [placeholder]="'Username'"
           [readonly]="false"
           [id]="'id'"
@@ -39,6 +41,9 @@
           [id]="'id'"
         >
         </app-reactive-input>
+        <app-button [name]="'submit'"></app-button>
+        </form>
+       
         <!-- <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)"></app-input-text> -->
         <div id="snackbar" style="color: red">{{ usernotfound }}</div>
         <p *ngIf="usernotfound.length">
@@ -51,3 +56,4 @@
     </div>
   </div>
 </section>
+<app-signup></app-signup>

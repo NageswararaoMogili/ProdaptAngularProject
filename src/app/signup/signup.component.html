@@ -6,10 +6,97 @@
       </div>
       <div class="row clearfix">
         <div class="">
-          <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)" ></app-input-text>
+          <app-reactive-input
+          [type]="'text'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'Name'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'Name'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+          [type]="'number'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'Phone Number'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'PhoneNumber'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+          [type]="'text'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'UserName'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'UserName'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+          [type]="'email'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'Email'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'Email'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+          [type]="'password'"
+          [classname]="'form-control'"
+          [required]="true"
+          [labelname]="'Password'"
+          [lableclassname]="'col-form-label'"
+          [disabled]="false"
+          [minLength]="6"
+          [maxLength]="10"
+          [placeholder]="'password'"
+          [readonly]="false"
+          [id]="'id'"
+        >
+        </app-reactive-input>
+        <app-reactive-input
+        [type]="'password'"
+        [classname]="'form-control'"
+        [required]="true"
+        [labelname]="'Confirm Password'"
+        [lableclassname]="'col-form-label'"
+        [disabled]="false"
+        [minLength]="6"
+        [maxLength]="10"
+        [placeholder]="'Confirm password'"
+        [readonly]="false"
+        [id]="'id'"
+      >
+      </app-reactive-input>
+  <app-button [name]="'button'"></app-button>
+
+          <!-- <app-input-text [jsonFormData]="formData" (newItemEvent)="submitForm($event)" ></app-input-text> -->
         </div>
       </div>
     </div>
   </div>
 </div>
+
 

@@ -8,14 +8,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ButtonComponent implements OnInit {
   
   @Input() name = '';
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Input() classname = '';
+
+  // @Output() newItemEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-   addNewItem(value: string) {
-    this.newItemEvent.emit(value);
-  }
+  //  addNewItem(value: string) {
+  //   this.newItemEvent.emit(value);
+  // }
 
 }
